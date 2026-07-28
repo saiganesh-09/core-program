@@ -7,7 +7,8 @@ print(power(8,3))
 for i in range(1,101):
     if i%2==0:
         sum=sum+i
-print(sum)'''
+print(sum)
+'''
 
 '''def fun(base,exponent):
     return base ** exponent
@@ -66,3 +67,4 @@ f(1,2,3)'''
 '''def fun(a,b,*arg,**kws):
     print(a,b,arg,kws)
 fun(1,2,3,4,5,name="Alice",age=21)'''
+          

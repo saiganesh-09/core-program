@@ -1,4 +1,7 @@
 .idea
 .venv
 venv
---pycache--
+--pycache-
+#step1
+git--version
+git--init--
