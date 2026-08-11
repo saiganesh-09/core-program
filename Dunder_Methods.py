@@ -12,8 +12,43 @@
         return Vector(x,y)|
     V1=Vector()
 '''
+'''class a:
+    def __init__(self,a):
+        self.a=a
+    def __add__(self, other):
+        return self.a+other.a
+a1=a(10)
+a2=a(20)
+print(a1+a2)'''
 
-class Student:
+'''class a:
+    def __init__(self,a):
+        self.a=a
+    def __sub__(self, other):
+        return self.a-other.a
+a1=a(20)
+a2=a(10)
+print(a1-a2)'''
+
+'''class a:
+    def __init__(self,a):
+        self.a=a
+    def __mul__(self, other):
+        return self.a * other.a
+a1=a(5)
+a2=a(5)
+print(a1*a2)'''
+
+'''class a:
+    def __init__(self,a):
+        self.a=a
+    def __mod__(self, other):
+        return self.a * other.a
+a1=a(5)
+a2=a(2)
+print(a1%a2)'''
+
+'''class Student:
     def __init__(self,marks):
         self.marks=marks
     def __ge__(self,z):
@@ -22,4 +57,6 @@ class Student:
         return self.marks>z.marks
 s1=Student(85)
 s2=Student(90)
-print(s1>s2)
+print(s1>s2)'''
+
+'''

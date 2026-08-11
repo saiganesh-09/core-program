@@ -21,3 +21,14 @@
 # n=l.pop()
 # print(k)
 # print(*l)
+l=[1,2,3,4,5,2,3,4,3,4]
+n=2
+# l.remove(2)
+# print(l)
+# l.remove(2)
+# print(l)
+k=l.count(n)
+print(k)
+for i in range(k):
+    l.remove(n)
+    print(l)
