@@ -5,7 +5,7 @@ Create a class BankAccount with:
 •	attributes: account_holder, balance
 •	instance method: deposit(amount)
 •	instance method: withdraw(amount)
-Implement these magic methods:
+Implement these magic methods:a
 •	__str__() → display account details
 •	__add__() → add balances of two accounts
 •	__sub__() → subtract balances
@@ -14,7 +14,7 @@ Implement these magic methods:
 •	__getattribute__() → print a message whenever an attribute is accessed
 •	__setattr__() → prevent setting negative balance
 Demonstrate creating two accounts and using all operations.
------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------'''
 class BankAccount:
     def __init__(self,account_holder,acc_num,balance=0):
         self.name=account_holder
@@ -24,7 +24,7 @@ class BankAccount:
         self.balance=self.balance+amount
         return self.balance
     def withdraw(self,amount):
-        self.balance-=amount
+        self.balance-=amount0
         return self.withdraw
     def __str__(self):
         return f"Account_holder:{self.name}\nAccount_Number:{self.acc_num}\nBalance:{self.balance}"
@@ -54,7 +54,7 @@ c2.withdraw(600)
 # print(c2)
 print(c1==c2)
 print(c1<c2)
-'''
+
 from statistics import quantiles
 
 '''
