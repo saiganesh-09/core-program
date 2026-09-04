@@ -215,31 +215,31 @@ Create a Bank class with:
 • check_balance()
 Create a User class that inherits Bank and displays the user's name. Perform
 deposit, withdrawal, and balance check.'''
-# class Bank:
-#     def __init__(self,balance=0):
-#         self.balance=balance
-#     def deposit(self,amount):
-#         self.balance+=amount
-#         print("Amount deposited:",amount)
-#     def withdraw(self,amount):
-#         if amount<=self.balance:
-#             self.balance-=amount
-#             print("Amount withdrawn:",amount)
-#         else:
-#             print("Insufficient balance")
-#     def check_balance(self):
-#         print("Current Balance:",self.balance)
-# class User(Bank):
-#     def __init__(self,name,balance=0):
-#         super().__init__(balance)
-#         self.name=name
-#     def display_user(self):
-#         print("User Name:",self.name)
-# u=User("Saiganesh",5000)
-# u.display_user()
-# u.deposit(2000)
-# u.withdraw(1500)
-# u.check_balance()
+class Bank:
+    def __init__(self,balance=0):
+        self.balance=balance
+    def deposit(self,amount):
+        self.balance+=amount
+        print("Amount deposited:",amount)
+    def withdraw(self,amount):
+        if amount<=self.balance:
+            self.balance-=amount
+            print("Amount withdrawn:",amount)
+        else:
+            print("Insufficient balance")
+    def check_balance(self):
+        print("Current Balance:",self.balance)
+class User(Bank):
+    def __init__(self,name,balance=0):
+        super().__init__(balance)
+        self.name=name
+    def display_user(self):
+        print("User Name:",self.name)
+u=User("Saiganesh",5000)
+u.display_user()
+u.deposit(2000)
+u.withdraw(1500)
+u.check_balance()
 
 '''2. Employee Salary System
 Create an Employee class with:
@@ -248,24 +248,24 @@ Create an Employee class with:
 • display_details()
 Create a Manager class that inherits Employee and adds a bonus(). Display the
 total salary'''
-# class Employee:
-#     def __init__(self,emp_name,salary):
-#         self.emp_name=emp_name
-#         self.salary=salary
-#     def display_details(self):
-#         print("Employee Name:",self.emp_name)
-#         print("Salary:",self.salary)
-# class Manager(Employee):
-#     def __init__(self,emp_name,salary,bonus):
-#         super().__init__(emp_name,salary)
-#         self.bonus=bonus
-#     def display_total_salary(self):
-#         self.display_details()
-#         print("Bonus:",self.bonus)
-#         print("Total Salary:",self.salary+self.bonus)
-#
-# a=Manager("Sai Ganesh",50000,10000)
-# a.display_total_salary()
+class Employee:
+    def __init__(self,emp_name,salary):
+        self.emp_name=emp_name
+        self.salary=salary
+    def display_details(self):
+        print("Employee Name:",self.emp_name)
+        print("Salary:",self.salary)
+class Manager(Employee):
+    def __init__(self,emp_name,salary,bonus):
+        super().__init__(emp_name,salary)
+        self.bonus=bonus
+    def display_total_salary(self):
+        self.display_details()
+        print("Bonus:",self.bonus)
+        print("Total Salary:",self.salary+self.bonus)
+
+a=Manager("Sai Ganesh",50000,10000)
+a.display_total_salary()
 '''3. Student Result System
 Create a Student class with:
 • Name
@@ -273,23 +273,23 @@ Create a Student class with:
 • display_marks()
 Create a Result class that inherits Student and calculates whether the student has
 passed or failed.'''
-# class Student:
-#     def __init__(self,name,marks):
-#         self.name=name
-#         self.marks=marks
-#     def display_marks(self):
-#         print("Student_Name:",self.name)
-#         print("Marks:",self.marks)
-#
-# class Result(Student):
-#     def check_result(self):
-#         self.display_marks()
-#         if self.marks>=40:
-#             print("Passed")
-#         else:
-#             print("Failed")
-# s=Result("Sai Ganesh",85)
-# s.check_result()
+class Student:
+    def __init__(self,name,marks):
+        self.name=name
+        self.marks=marks
+    def display_marks(self):
+        print("Student_Name:",self.name)
+        print("Marks:",self.marks)
+
+class Result(Student):
+    def check_result(self):
+        self.display_marks()
+        if self.marks>=40:
+            print("Passed")
+        else:
+            print("Failed")
+s=Result("Sai Ganesh",85)
+s.check_result()
 
 '''4. Food Ordering System Using Multilevel Inheritance
 Class 1: Restaurant
@@ -303,38 +303,38 @@ Create the following methods:
 Class 3: Customer (inherits FoodCourt)
 • Create an object of the Customer class.
 • Call the order() method. '''
-# class Restaurant:
-#     def menu(self,item):
-#         prices= {
-#             "pizza": 150,
-#             "burger": 100,
-#             "biryani": 200,
-#             "dosa": 80,
-#             "idly": 50
-#         }
-#         return prices.get(item,"item not there")
-# class FoodCourt(Restaurant):
-#     def display_menu(self):
-#         print("\n----- MENU -----")
-#         print("Pizza   - ₹150")
-#         print("Burger  - ₹100")
-#         print("Biryani - ₹200")
-#         print("Dosa    - ₹80")
-#         print("Idly    - ₹50")
-#     def order(self):
-#         self.display_menu()
-#         total=0
-#         while True:
-#             item=input("\nEnter food item:")
-#             if item=="done":
-#                 break
-#             price=self.menu(item)
-#             if price==0:
-#                 print("Item not available")
-#             else:
-#                 total+=price
-#                 print(item, "added - ₹", price)
-#         self.billing(total)
+class Restaurant:
+    def menu(self,item):
+        prices= {
+            "pizza": 150,
+            "burger": 100,
+            "biryani": 200,
+            "dosa": 80,
+            "idly": 50
+        }
+        return prices.get(item,"item not there")
+class FoodCourt(Restaurant):
+    def display_menu(self):
+        print("\n----- MENU -----")
+        print("Pizza   - ₹150")
+        print("Burger  - ₹100")
+        print("Biryani - ₹200")
+        print("Dosa    - ₹80")
+        print("Idly    - ₹50")
+    def order(self):
+        self.display_menu()
+        total=0
+        while True:
+            item=input("\nEnter food item:")
+            if item=="done":
+                break
+            price=self.menu(item)
+            if price==0:
+                print("Item not available")
+            else:
+                total+=price
+                print(item, "added - ₹", price)
+        self.billing(total)
 '''5. Movie Ticket Booking System Using Multilevel Inheritance
 Class 1: Movie
 • Create a method ticket(movie) that returns the ticket price.
@@ -345,49 +345,49 @@ Create the following methods:
 • billing() – Display the total amount and add a booking charge of ₹30.
 Class 3: Customer (inherits Booking)
 • Create an object and call the selection() method. '''
-# class Movie:
-#     def ticket(self,movie):
-#         prices = {
-#             "pushpa": 150,
-#             "bahubali": 180,
-#             "rrr": 200,
-#             "kgf": 170,
-#             "salaar": 160
-#         }
-#         return prices.get(movie.lower(), 0)
-# class Booking(Movie):
-#     def movies(self):
-#         print("\n----- AVAILABLE MOVIES -----")
-#         print("Pushpa  - ₹150")
-#         print("Bahubali - ₹180")
-#         print("RRR     - ₹200")
-#         print("KGF     - ₹170")
-#         print("Salaar  - ₹160")
-#     def selection(self):
-#         self.movies()
-#         total=0
-#         while True:
-#             movie=input("\nEnter movie name: ")
-#             if movie=="done":
-#                 break
-#             price=self.ticket(movie)
-#             if price==0:
-#                 print("Movie not available")
-#             else:
-#                 total+=price
-#                 print(movie,"Ticket Booked -",price)
-#         self.billing(total)
-#     def billing(self,total):
-#         booking_charge=30
-#         final_amount=total+booking_charge
-#         print("\n----- BILL -----")
-#         print("Ticket Total   : ₹", total)
-#         print("Booking Charge : ₹", booking_charge)
-#         print("Total Amount   : ₹", final_amount)
-# class Customer(Booking):
-#     pass
-# c=Customer()
-# c.selection()
+class Movie:
+    def ticket(self,movie):
+        prices = {
+            "pushpa": 150,
+            "bahubali": 180,
+            "rrr": 200,
+            "kgf": 170,
+            "salaar": 160
+        }
+        return prices.get(movie.lower(), 0)
+class Booking(Movie):
+    def movies(self):
+        print("\n----- AVAILABLE MOVIES -----")
+        print("Pushpa  - ₹150")
+        print("Bahubali - ₹180")
+        print("RRR     - ₹200")
+        print("KGF     - ₹170")
+        print("Salaar  - ₹160")
+    def selection(self):
+        self.movies()
+        total=0
+        while True:
+            movie=input("\nEnter movie name: ")
+            if movie=="done":
+                break
+            price=self.ticket(movie)
+            if price==0:
+                print("Movie not available")
+            else:
+                total+=price
+                print(movie,"Ticket Booked -",price)
+        self.billing(total)
+    def billing(self,total):
+        booking_charge=30
+        final_amount=total+booking_charge
+        print("\n----- BILL -----")
+        print("Ticket Total   : ₹", total)
+        print("Booking Charge : ₹", booking_charge)
+        print("Total Amount   : ₹", final_amount)
+class Customer(Booking):
+    pass
+c=Customer()
+c.selection()
 
 '''6. Online Course Enrollment System Using Multilevel Inheritance
 Class 1: Course
@@ -399,50 +399,50 @@ Create the following methods:
 • billing() – Display the total fee and add a registration fee of ₹100.
 Class 3: Student (inherits Academy)
 • Create an object and call the enroll() method'''
-# class Course:
-#     def fee(self,course):
-#         fees={
-#             "python": 5000,
-#             "java": 6000,
-#             "sql": 4000,
-#             "web development": 7000,
-#             "data science": 8000
-#         }
-#         return fees.get(course.lower(), 0)
-# class Academy(Course):
-#     def courses(self):
-#         def courses(self):
-#             print("\n----- AVAILABLE COURSES -----")
-#             print("Python          - ₹5000")
-#             print("Java            - ₹6000")
-#             print("SQL             - ₹4000")
-#             print("Web Development - ₹7000")
-#             print("Data Science    - ₹8000")
-#     def enroll(self):
-#         self.courses()
-#         total=0
-#         while True:
-#             course=input("\nEnter Course Name:",)
-#             if course=="done":
-#                 break
-#             amount=self.fee(course)
-#             if amount==0:
-#                 print("Course not available")
-#             else:
-#                 total+=amount
-#                 print(course, "enrolled successfully - ₹", amount)
-#         self.billing(total)
-#     def billing(self,total):
-#         registration_fee=100
-#         final_amount=total+registration_fee
-#         print("\n----- BILL -----")
-#         print("Course Fee       : ₹", total)
-#         print("Registration Fee : ₹", registration_fee)
-#         print("Total Amount     : ₹", final_amount)
-# class Student(Academy):
-#     pass
-# s=Student()
-# s.enroll()
+class Course:
+    def fee(self,course):
+        fees={
+            "python": 5000,
+            "java": 6000,
+            "sql": 4000,
+            "web development": 7000,
+            "data science": 8000
+        }
+        return fees.get(course.lower(), 0)
+class Academy(Course):
+    def courses(self):
+        def courses(self):
+            print("\n----- AVAILABLE COURSES -----")
+            print("Python          - ₹5000")
+            print("Java            - ₹6000")
+            print("SQL             - ₹4000")
+            print("Web Development - ₹7000")
+            print("Data Science    - ₹8000")
+    def enroll(self):
+        self.courses()
+        total=0
+        while True:
+            course=input("\nEnter Course Name:",)
+            if course=="done":
+                break
+            amount=self.fee(course)
+            if amount==0:
+                print("Course not available")
+            else:
+                total+=amount
+                print(course, "enrolled successfully - ₹", amount)
+        self.billing(total)
+    def billing(self,total):
+        registration_fee=100
+        final_amount=total+registration_fee
+        print("\n----- BILL -----")
+        print("Course Fee       : ₹", total)
+        print("Registration Fee : ₹", registration_fee)
+        print("Total Amount     : ₹", final_amount)
+class Student(Academy):
+    pass
+s=Student()
+s.enroll()
 
 '''7. Cab Booking System Using Hierarchical Inheritance
 Class 1: Cab
@@ -459,91 +459,91 @@ Driver Code
              /   \
             /     \
          Uber     Ola'''
-# class Cab:
-#     def Bike_Fare(self,km):
-#         return km*10
-#     def Auto_Fare(self,km):
-#         return km*10
-#     def Car_Fare(self,km):
-#         return km*10
-# class Uber(Cab):
-#     def menu(self):
-#         print("\n----- UBER -----")
-#         print("1. Bike - ₹10/km")
-#         print("2. Auto - ₹15/km")
-#         print("3. Car  - ₹20/km")
-#     def booking(self):
-#         self.menu()
-#         choice=input("Choose ride: ")
-#         km=float(input("Enter distance in km: "))
-#
-#         if choice=="bike":
-#             fare=self.Bike_Fare(km)
-#         elif choice=="auto":
-#             fare=self.Auto_Fare(km)
-#         elif choice=="car":
-#             fare=self.Car_Fare(km)
-#         else:
-#             print("Invalid Choice")
-#             return
-#         self.billing(fare)
-#     def billing(self,fare):
-#         gst=fare*0.10
-#         discount=0
-#         if fare>1000:
-#             discount=fare*0.15
-#         total=fare+gst-discount
-#         print("\n----- UBER BILL -----")
-#         print("Base Fare : ₹", fare)
-#         print("GST (10%) : ₹", gst)
-#         print("Discount  : ₹", discount)
-#         print("Total Bill: ₹", total)
-# class Ola(Cab):
-#     def menu(self):
-#         print("\n----- UBER -----")
-#         print("1. Bike - ₹10/km")
-#         print("2. Auto - ₹15/km")
-#         print("3. Car  - ₹20/km")
-#     def booking(self):
-#         self.menu()
-#         choice=input("Choose ride: ")
-#         km=float(input("Enter distance in km: "))
-#
-#         if choice=="bike":
-#             fare=self.Bike_Fare(km)
-#         elif choice=="auto":
-#             fare=self.Auto_Fare(km)
-#         elif choice=="car":
-#             fare=self.Car_Fare(km)
-#         else:
-#             print("Invalid Choice")
-#             return
-#         self.billing(fare)
-#     def billing(self,fare):
-#         gst=fare*0.12
-#         discount=0
-#         if fare>1500:
-#             discount=fare*0.20
-#         total=fare+gst-discount
-#         print("\n----- OLA BILL -----")
-#         print("Base Fare : ₹", fare)
-#         print("GST (10%) : ₹", gst)
-#         print("Discount  : ₹", discount)
-#         print("Total Bill: ₹", total)
-#
-# print("----- CAB BOOKING -----")
-# print("1. Uber")
-# print("2. Ola")
-#
-# choice = input("Choose Cab: ")
-# if choice=="uber":
-#     u=Uber()
-#     u.booking()
-# elif choice=="ola":
-#     o=Ola()
-#     o.booking()
-# else:
-#     print("Invalid cab")
+class Cab:
+    def Bike_Fare(self,km):
+        return km*10
+    def Auto_Fare(self,km):
+        return km*10
+    def Car_Fare(self,km):
+        return km*10
+class Uber(Cab):
+    def menu(self):
+        print("\n----- UBER -----")
+        print("1. Bike - ₹10/km")
+        print("2. Auto - ₹15/km")
+        print("3. Car  - ₹20/km")
+    def booking(self):
+        self.menu()
+        choice=input("Choose ride: ")
+        km=float(input("Enter distance in km: "))
+
+        if choice=="bike":
+            fare=self.Bike_Fare(km)
+        elif choice=="auto":
+            fare=self.Auto_Fare(km)
+        elif choice=="car":
+            fare=self.Car_Fare(km)
+        else:
+            print("Invalid Choice")
+            return
+        self.billing(fare)
+    def billing(self,fare):
+        gst=fare*0.10
+        discount=0
+        if fare>1000:
+            discount=fare*0.15
+        total=fare+gst-discount
+        print("\n----- UBER BILL -----")
+        print("Base Fare : ₹", fare)
+        print("GST (10%) : ₹", gst)
+        print("Discount  : ₹", discount)
+        print("Total Bill: ₹", total)
+class Ola(Cab):
+    def menu(self):
+        print("\n----- UBER -----")
+        print("1. Bike - ₹10/km")
+        print("2. Auto - ₹15/km")
+        print("3. Car  - ₹20/km")
+    def booking(self):
+        self.menu()
+        choice=input("Choose ride: ")
+        km=float(input("Enter distance in km: "))
+
+        if choice=="bike":
+            fare=self.Bike_Fare(km)
+        elif choice=="auto":
+            fare=self.Auto_Fare(km)
+        elif choice=="car":
+            fare=self.Car_Fare(km)
+        else:
+            print("Invalid Choice")
+            return
+        self.billing(fare)
+    def billing(self,fare):
+        gst=fare*0.12
+        discount=0
+        if fare>1500:
+            discount=fare*0.20
+        total=fare+gst-discount
+        print("\n----- OLA BILL -----")
+        print("Base Fare : ₹", fare)
+        print("GST (10%) : ₹", gst)
+        print("Discount  : ₹", discount)
+        print("Total Bill: ₹", total)
+
+print("----- CAB BOOKING -----")
+print("1. Uber")
+print("2. Ola")
+
+choice = input("Choose Cab: ")
+if choice=="uber":
+    u=Uber()
+    u.booking()
+elif choice=="ola":
+    o=Ola()
+    o.booking()
+else:
+    print("Invalid cab")
 
 '''8. Grocery Shopping System Using Hierarchical Inheritance
 Class 1: Grocery
@@ -556,100 +556,100 @@ Class 3: Reliance Smart (inherits Grocery)
 • Add 5% GST and apply a 15% discount if the bill is above ₹2500.
 Driver Code
 • Ask the user to choose the supermarket and call the shopping() method.'''
-# class Grocery:
-#     def rice_price(self,quantity):
-#         return quantity*60
-#     def sugar_price(self,quantity):
-#         return quantity*45
-#     def oil_price(self,quantity):
-#         return quantity*50
-# class Dmart(Grocery):
-#     def items(self):
-#         print("\n----- DMART ITEMS -----")
-#         print("Rice  - ₹60/kg")
-#         print("Sugar - ₹45/kg")
-#         print("Oil   - ₹120/litre")
-#     def shopping(self):
-#         self.items()
-#         total=0
-#         while True:
-#             item=input("\nEnter item: ")
-#             if item=="done":
-#                 break
-#             quantity=float(input("Enter Quantity: "))
-#             if item=="rice":
-#                 price=self.rice_price(quantity)
-#             elif item=="sugar":
-#                 price=self.sugar_price(quantity)
-#             elif item=="oil":
-#                 price=self.oil_price(quantity)
-#             else:
-#                 print("Item not available")
-#                 continue
-#             total+=price
-#             print(item, "added - ₹", price)
-#         self.billing(total)
-#     def billing(self,total):
-#         gst=total*0.5
-#         discount=0
-#         if total>2000:
-#             discount=total*0.10
-#         final_amount=total+gst-discount
-#
-#         print("\n----- DMART BILL -----")
-#         print("Total Amount : ₹", total)
-#         print("GST (5%)     : ₹", gst)
-#         print("Discount     : ₹", discount)
-#         print("Final Bill   : ₹", final_amount)
-# class RelianceSmart(Grocery):
-#     def items(self):
-#         print("\n----- RELIANCE MART ITEMS -----")
-#         print("Rice  - ₹60/kg")
-#         print("Sugar - ₹45/kg")
-#         print("Oil   - ₹120/litre")
-#     def shopping(self):
-#         self.items()
-#         total=0
-#         while True:
-#             item=input("\nEnter item: ")
-#             if item=="done":
-#                 break
-#             quantity=float(input("Enter Quantity: "))
-#             if item=="rice":
-#                 price=self.rice_price(quantity)
-#             elif item=="sugar":
-#                 price=self.sugar_price(quantity)
-#             elif item=="oil":
-#                 price=self.oil_price(quantity)
-#             else:
-#                 print("Item not available")
-#                 continue
-#             total+=price
-#             print(item, "added - ₹", price)
-#         self.billing(total)
-#     def billing(self,total):
-#         gst=total*0.5
-#         discount=0
-#         if total>2500:
-#             discount=total*0.15
-#         final_amount=total+gst-discount
-#
-#         print("\n----- RELIANCE MART BILL -----")
-#         print("Total Amount : ₹", total)
-#         print("GST (5%)     : ₹", gst)
-#         print("Discount     : ₹", discount)
-#         print("Final Bill   : ₹", final_amount)
-#
-# print("----- GROCERY SHOPPING -----")
-# print("1. Dmart")
-# print("2. Reliance Smart")
-# choice=input("Choose SuperMart: ")
-# if choice=="Dmart":
-#     d=Dmart()
-#     d.shopping()
-# elif choice=="Reliance Smart":
-#     r=RelianceSmart()
-#     r.shopping()
+class Grocery:
+    def rice_price(self,quantity):
+        return quantity*60
+    def sugar_price(self,quantity):
+        return quantity*45
+    def oil_price(self,quantity):
+        return quantity*50
+class Dmart(Grocery):
+    def items(self):
+        print("\n----- DMART ITEMS -----")
+        print("Rice  - ₹60/kg")
+        print("Sugar - ₹45/kg")
+        print("Oil   - ₹120/litre")
+    def shopping(self):
+        self.items()
+        total=0
+        while True:
+            item=input("\nEnter item: ")
+            if item=="done":
+                break
+            quantity=float(input("Enter Quantity: "))
+            if item=="rice":
+                price=self.rice_price(quantity)
+            elif item=="sugar":
+                price=self.sugar_price(quantity)
+            elif item=="oil":
+                price=self.oil_price(quantity)
+            else:
+                print("Item not available")
+                continue
+            total+=price
+            print(item, "added - ₹", price)
+        self.billing(total)
+    def billing(self,total):
+        gst=total*0.5
+        discount=0
+        if total>2000:
+            discount=total*0.10
+        final_amount=total+gst-discount
+
+        print("\n----- DMART BILL -----")
+        print("Total Amount : ₹", total)
+        print("GST (5%)     : ₹", gst)
+        print("Discount     : ₹", discount)
+        print("Final Bill   : ₹", final_amount)
+class RelianceSmart(Grocery):
+    def items(self):
+        print("\n----- RELIANCE MART ITEMS -----")
+        print("Rice  - ₹60/kg")
+        print("Sugar - ₹45/kg")
+        print("Oil   - ₹120/litre")
+    def shopping(self):
+        self.items()
+        total=0
+        while True:
+            item=input("\nEnter item: ")
+            if item=="done":
+                break
+            quantity=float(input("Enter Quantity: "))
+            if item=="rice":
+                price=self.rice_price(quantity)
+            elif item=="sugar":
+                price=self.sugar_price(quantity)
+            elif item=="oil":
+                price=self.oil_price(quantity)
+            else:
+                print("Item not available")
+                continue
+            total+=price
+            print(item, "added - ₹", price)
+        self.billing(total)
+    def billing(self,total):
+        gst=total*0.5
+        discount=0
+        if total>2500:
+            discount=total*0.15
+        final_amount=total+gst-discount
+
+        print("\n----- RELIANCE MART BILL -----")
+        print("Total Amount : ₹", total)
+        print("GST (5%)     : ₹", gst)
+        print("Discount     : ₹", discount)
+        print("Final Bill   : ₹", final_amount)
+
+print("----- GROCERY SHOPPING -----")
+print("1. Dmart")
+print("2. Reliance Smart")
+choice=input("Choose SuperMart: ")
+if choice=="Dmart":
+    d=Dmart()
+    d.shopping()
+elif choice=="Reliance Smart":
+    r=RelianceSmart()
+    r.shopping()
 
 '''9. Bus Ticket Booking System Using Hierarchical Inheritance
 Class 1: Bus
@@ -663,81 +663,81 @@ Class 3: AbhiBus (inherits Bus)
 • Add 10% GST and a reservation charge of ₹20.
 Driver Code
 • Ask the user to choose the platform and call the booking() method.'''
-# class Bus:
-#     def sleeper_fare(self,distance):
-#         return distance*3
-#     def semi_sleeper_fare(self,distance):
-#         return distance*2.5
-#     def ac_fare(self,distance):
-#         return distance*4
-# class Redbus(Bus):
-#     def routes(self):
-#         print("\n----- REDBUS ROUTES -----")
-#         print("1. Hyderabad to Vijayawada")
-#         print("2. Hyderabad to Visakhapatnam")
-#         print("3. Hyderabad to Bangalore")
-#     def booking(self):
-#         self.routes()
-#         bus_type=input("\n Enter bus type:")
-#         distance=float(input("Enter distance in km:"))
-#         if bus_type=="sleeper":
-#             fare=self.sleeper_fare(distance)
-#         elif bus_type=="semi_sleeper":
-#             fare=self.semi_sleeper_fare(distance)
-#         elif bus_type=="ac":
-#             fare=self.ac_fare(distance)
-#         else:
-#             print("Invalid Bus Type")
-#             return
-#         self.billing(fare)
-#     def billing(self,fare):
-#         gst=fare*0.10
-#         reservation_charge=30
-#         total=fare+gst+reservation_charge
-#         print("\n----- REDBUS BILL -----")
-#         print("Bus Fare           : ₹", fare)
-#         print("GST (10%)          : ₹", gst)
-#         print("Reservation Charge : ₹", reservation_charge)
-#         print("Total Amount       : ₹", total)
-# class AbhiBus(Bus):
-#     def routes(self):
-#         print("\n----- ABHI BUS ROUTES -----")
-#         print("1. Hyderabad to Vijayawada")
-#         print("2. Hyderabad to Visakhapatnam")
-#         print("3. Hyderabad to Bangalore")
-#     def booking(self):
-#         self.routes()
-#         bus_type=input("\n Enter bus type:")
-#         distance=float(input("Enter distance in km:"))
-#         if bus_type=="sleeper":
-#             fare=self.sleeper_fare(distance)
-#         elif bus_type=="semi_sleeper":
-#             fare=self.semi_sleeper_fare(distance)
-#         elif bus_type=="ac":
-#             fare=self.ac_fare(distance)
-#         else:
-#             print("Invalid Bus Type")
-#             return
-#         self.billing(fare)
-#     def billing(self,fare):
-#         gst=fare*0.10
-#         reservation_charge=20
-#         total=fare+gst+reservation_charge
-#         print("\n----- ABHI BUS BILL -----")
-#         print("Bus Fare           : ₹", fare)
-#         print("GST (10%)          : ₹", gst)
-#         print("Reservation Charge : ₹", reservation_charge)
-#         print("Total Amount       : ₹", total)
-# print("----- BUS TICKET BOOKING -----")
-# print("1. RedBus")
-# print("2. AbhiBus")
-# choice=input("choose platform: ")
-# if choice==Redbus:
-#     r=Redbus()
-#     r.booking()
-# elif choice==AbhiBus:
-#     a=AbhiBus()
-#     a.booking()
+class Bus:
+    def sleeper_fare(self,distance):
+        return distance*3
+    def semi_sleeper_fare(self,distance):
+        return distance*2.5
+    def ac_fare(self,distance):
+        return distance*4
+class Redbus(Bus):
+    def routes(self):
+        print("\n----- REDBUS ROUTES -----")
+        print("1. Hyderabad to Vijayawada")
+        print("2. Hyderabad to Visakhapatnam")
+        print("3. Hyderabad to Bangalore")
+    def booking(self):
+        self.routes()
+        bus_type=input("\n Enter bus type:")
+        distance=float(input("Enter distance in km:"))
+        if bus_type=="sleeper":
+            fare=self.sleeper_fare(distance)
+        elif bus_type=="semi_sleeper":
+            fare=self.semi_sleeper_fare(distance)
+        elif bus_type=="ac":
+            fare=self.ac_fare(distance)
+        else:
+            print("Invalid Bus Type")
+            return
+        self.billing(fare)
+    def billing(self,fare):
+        gst=fare*0.10
+        reservation_charge=30
+        total=fare+gst+reservation_charge
+        print("\n----- REDBUS BILL -----")
+        print("Bus Fare           : ₹", fare)
+        print("GST (10%)          : ₹", gst)
+        print("Reservation Charge : ₹", reservation_charge)
+        print("Total Amount       : ₹", total)
+class AbhiBus(Bus):
+    def routes(self):
+        print("\n----- ABHI BUS ROUTES -----")
+        print("1. Hyderabad to Vijayawada")
+        print("2. Hyderabad to Visakhapatnam")
+        print("3. Hyderabad to Bangalore")
+    def booking(self):
+        self.routes()
+        bus_type=input("\n Enter bus type:")
+        distance=float(input("Enter distance in km:"))
+        if bus_type=="sleeper":
+            fare=self.sleeper_fare(distance)
+        elif bus_type=="semi_sleeper":
+            fare=self.semi_sleeper_fare(distance)
+        elif bus_type=="ac":
+            fare=self.ac_fare(distance)
+        else:
+            print("Invalid Bus Type")
+            return
+        self.billing(fare)
+    def billing(self,fare):
+        gst=fare*0.10
+        reservation_charge=20
+        total=fare+gst+reservation_charge
+        print("\n----- ABHI BUS BILL -----")
+        print("Bus Fare           : ₹", fare)
+        print("GST (10%)          : ₹", gst)
+        print("Reservation Charge : ₹", reservation_charge)
+        print("Total Amount       : ₹", total)
+print("----- BUS TICKET BOOKING -----")
+print("1. RedBus")
+print("2. AbhiBus")
+choice=input("choose platform: ")
+if choice==Redbus:
+    r=Redbus()
+    r.booking()
+elif choice==AbhiBus:
+    a=AbhiBus()
+    a.booking()
 '''10. ATM System Using Multiple Inheritance
 Class 1: SBI
 • Create the methods deposit(amount) and check_balance().
@@ -763,4 +763,3 @@ class UnionBank:
         if amount<=self.balance:
             self.balance-=amount
             print("Amount withdrawn:",amount)
-            
