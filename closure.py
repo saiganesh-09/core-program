@@ -5,6 +5,8 @@ Write a function electricity(rate_per_unit).
 -   The inner function receives the number of units consumed.
 -   Print the total electricity bill.
 -   Return the inner function.'''
+from turtledemo.clock import display_date_time
+
 # def electricity(rate_per_unit):
 #     def inner(units):
 #         total=rate_per_unit*units
@@ -14,10 +16,8 @@ Write a function electricity(rate_per_unit).
 # a(100)
 # a(200)
 
-'''Question 2
-
+'''Question
 Write a function salary(bonus).
-
 -   The outer function receives the bonus amount.
 -   The inner function receives the employee’s basic salary.
 -   Print the total salary after adding the bonus.
@@ -45,7 +45,6 @@ Write a function discount(percent).
 # a=discount(10)
 # a(1500)
 # a(2300)
-
 '''Question 4
 Write a function bank_account(balance).
 
@@ -53,7 +52,6 @@ Write a function bank_account(balance).
 -   The inner function receives an amount to withdraw.
 -   Print the remaining balance.
 -   Return the inner function.'''
-
 # def fun(balance):
 #     def inner(withdraw):
 #         total=balance-withdraw
@@ -61,7 +59,6 @@ Write a function bank_account(balance).
 #     return inner
 # a=fun(10000)
 # a(5000)
-
 '''
 Question 5
 
@@ -92,6 +89,7 @@ Write a function multiplier(number).
 #     return inner
 # a=fun(10)
 # print(a(20))
+
 '''
 Question 7
 
@@ -101,11 +99,11 @@ Write a function restaurant(food_item).
 -   The inner function receives the quantity.
 -   Print the order details.
 -   Return the inner function.'''
-# def fun(food_item):
+# def restaurant(food_item):
 #     def inner(quantity):
-#         print(f"{food_item} packed {quantity}")
+#         print(f'{quantity} {food_item} parcels packed')
 #     return inner
-# a=fun("Biryani")
+# a=restaurant("Biryani")
 # a(2)
 '''
 Question 8
@@ -117,15 +115,15 @@ Write a function create_password(password).
 -   If both passwords are the same, print Access Granted; otherwise
     print Access Denied.
 -   Return the inner function.'''
-# def fun(password):
-#     def inner(password2):
-#         if password==password2:
+# def create_password(password):
+#     def inner(another_password):
+#         if password==another_password:
 #             print("Access Granted")
 #         else:
 #             print("Access Denied")
 #     return inner
-# a=fun("sai")
-# a("sai")
+# a=create_password('sai')
+# a('ganesh')
 '''
 Question 9
 
@@ -137,16 +135,15 @@ Write a function shopping_cart(item_name).
     -   price per item
 -   Print the item name, quantity, and total price.
 -   Return the inner function.'''
-# def fun(item):
+# def shopping(item_name):
 #     def inner(quantity,price):
-#         total=price*quantity
-#         print("item_name:",item)
-#         print("quantity:",quantity)
-#         print("total price:",price)
+#         total=item_name*quantity
+#         print("item_name:",item_name)
+#         print('quantity:',quantity)
+#         print('total price:',price)
 #     return inner
-# a=fun("Choclates")
+# a=shopping("Choclates")
 # a(5,500)
-
 '''Question 10
 
 Create a function counter().

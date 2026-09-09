@@ -138,12 +138,11 @@ Demonstrate both outputs.'''
 # class Manager(Employee):
 #     def salary(self):
 #         print("Manager salary:50,000")
-#         print("Manager incentive:10,000")
+#         print("Manager Incentive:10,000")
 # e=Employee()
 # m=Manager()
 # e.salary()
 # m.salary()
-
 '''Create class University with a class variable and a class method. 
 Inherit it into class College and access the parent’s class variable from the child class'''
 # class university:
@@ -172,22 +171,20 @@ Inherit it into class College and access the parent’s class variable from the 
 
 '''Create two classes Father and Mother, both defining a method skills(). 
 Create class Child(Father, Mother) and check which skills() runs using MRO.'''
-# class Father:
+# class Father():
 #     def skills(self):
-#         print("Father's skill: Driving")
-#         super().skills()
-# class Mother:
+#         print("Father skills:Driving")
+# class Mother():
 #     def skills(self):
-#         print("Mother's skill: Cooking")
+#         print("Mother skills:Coocking")
 # class Child(Father,Mother):
 #     def skills(self):
-#         print('child skills')
+#         print("Child skills")
 #         super().skills()
 # c=Child()
 # c.skills()
-# print("\nMRO:")#Method Resolution Order
+# print("\n MRO:")
 # print(Child.mro())
-
 '''• Create an abstract class Shape with an abstract method area(). Create class
 Rectangle(Shape) that implements the area() method.'''
 
@@ -215,31 +212,31 @@ Create a Bank class with:
 • check_balance()
 Create a User class that inherits Bank and displays the user's name. Perform
 deposit, withdrawal, and balance check.'''
-class Bank:
-    def __init__(self,balance=0):
-        self.balance=balance
-    def deposit(self,amount):
-        self.balance+=amount
-        print("Amount deposited:",amount)
-    def withdraw(self,amount):
-        if amount<=self.balance:
-            self.balance-=amount
-            print("Amount withdrawn:",amount)
-        else:
-            print("Insufficient balance")
-    def check_balance(self):
-        print("Current Balance:",self.balance)
-class User(Bank):
-    def __init__(self,name,balance=0):
-        super().__init__(balance)
-        self.name=name
-    def display_user(self):
-        print("User Name:",self.name)
-u=User("Saiganesh",5000)
-u.display_user()
-u.deposit(2000)
-u.withdraw(1500)
-u.check_balance()
+# class Bank:
+#     def __init__(self,balance=0):
+#         self.balance=balance
+#     def deposit(self,amount):
+#         self.balance+=amount
+#         print("Amount deposited:",amount)
+#     def withdraw(self,amount):
+#         if amount<=self.balance:
+#             self.balance-=amount
+#             print("Amount withdrawn:",amount)
+#         else:
+#             print("Insufficient balance")
+#     def check_balance(self):
+#         print("Current Balance:",self.balance)
+# class User(Bank):
+#     def __init__(self,name,balance=0):
+#         super().__init__(balance)
+#         self.name=name
+#     def display_user(self):
+#         print("User Name:",self.name)
+# u=User("Saiganesh",5000)
+# u.display_user()
+# u.deposit(2000)
+# u.withdraw(1500)
+# u.check_balance()
 
 '''2. Employee Salary System
 Create an Employee class with:
@@ -247,25 +244,24 @@ Create an Employee class with:
 • salary
 • display_details()
 Create a Manager class that inherits Employee and adds a bonus(). Display the
-total salary'''
+# total salary'''
 class Employee:
     def __init__(self,emp_name,salary):
         self.emp_name=emp_name
         self.salary=salary
     def display_details(self):
-        print("Employee Name:",self.emp_name)
+        print("Employee:",self.emp_name)
         print("Salary:",self.salary)
 class Manager(Employee):
     def __init__(self,emp_name,salary,bonus):
-        super().__init__(emp_name,salary)
+        super().__init__(emp_name, salary)
         self.bonus=bonus
-    def display_total_salary(self):
+    def display_total(self):
         self.display_details()
         print("Bonus:",self.bonus)
-        print("Total Salary:",self.salary+self.bonus)
-
-a=Manager("Sai Ganesh",50000,10000)
-a.display_total_salary()
+        print("Total Sal:",self.salary+self.bonus)
+a=Manager("Saiganesh",12345,5678)
+a.display_total()
 '''3. Student Result System
 Create a Student class with:
 • Name
@@ -280,7 +276,6 @@ class Student:
     def display_marks(self):
         print("Student_Name:",self.name)
         print("Marks:",self.marks)
-
 class Result(Student):
     def check_result(self):
         self.display_marks()
