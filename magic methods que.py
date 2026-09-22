@@ -313,8 +313,24 @@ Implement:
 •	__gt__() → check longer duration 
 •	__getattr__() → handle invalid attribute access 
 •	__setattr__() → minutes must be between 0 and 59 '''
-
-
+class TimeDuration:
+    def __init__(self,hours,minutes):
+        self.hours=hours
+        self.minutes=minutes
+    def total_minutes(self):
+        return self.hours*60+self.minutes
+    def __str__(self):
+        return f'Hours:{self.hours}\nMinutes:{self.minutes}\nTotal:{self.total_minutes()}'
+    def __add__(self, other):
+        total=self.total_minutes()+other.total_minutes()
+        hours=total//60
+        minutes=total%60
+        return TimeDuration(hours, minutes)
+    def __sub__(self, other):
+        total = self.total_minutes() + other.total_minutes()
+        hours = total // 60
+        minutes = total % 60
+        return TimeDuration(hours, minutes)
 '''Question 9: Laptop Specification
 Create a class Laptop with:
 •	attributes: brand, ram, price 
